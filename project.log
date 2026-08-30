@@ -2032,3 +2032,873 @@ around the average value.
 2026-08-30 14:02:06 | INFO | P02 | ===================================
 2026-08-30 14:02:06 | INFO | P02 | END main() - Executed successfully!
 2026-08-30 14:02:06 | INFO | P02 | ===================================
+2026-08-30 14:20:51 | INFO | P02 | === RUN START ===
+2026-08-30 14:20:51 | INFO | P02 | project=P02
+2026-08-30 14:20:51 | INFO | P02 | repo_dir=datafun-02-automation
+2026-08-30 14:20:51 | INFO | P02 | python=3.14.7
+2026-08-30 14:20:51 | INFO | P02 | os=Linux 7.0.0-30-generic
+2026-08-30 14:20:51 | INFO | P02 | shell=bash
+2026-08-30 14:20:51 | INFO | P02 | cwd=.
+2026-08-30 14:20:51 | INFO | P02 | github_actions=False
+2026-08-30 14:20:51 | INFO | P02 | ===================================
+2026-08-30 14:20:51 | INFO | P02 | START main()
+2026-08-30 14:20:51 | INFO | P02 | ===================================
+2026-08-30 14:20:51 | INFO | P02 | -------------------------------
+2026-08-30 14:20:51 | INFO | P02 | 01. LOAD the data.
+2026-08-30 14:20:51 | INFO | P02 | -------------------------------
+2026-08-30 14:20:51 | INFO | P02 | data file = data/penguins.csv
+2026-08-30 14:20:51 | INFO | P02 | Data loaded successfully.
+2026-08-30 14:20:51 | INFO | P02 | -------------------------------
+2026-08-30 14:20:51 | INFO | P02 | 02. INSPECT the data.
+2026-08-30 14:20:51 | INFO | P02 | -------------------------------
+2026-08-30 14:20:51 | INFO | P02 | START inspect
+2026-08-30 14:20:51 | INFO | P02 |    row_count:    344
+2026-08-30 14:20:51 | INFO | P02 |    column_count: 8
+2026-08-30 14:20:51 | INFO | P02 |    column_names: ['species', 'island', 'bill_length_mm', 'bill_depth_mm', 'flipper_length_mm', 'body_mass_g', 'sex', 'year']
+2026-08-30 14:20:51 | INFO | P02 | END inspect. Returning inspection_string.
+2026-08-30 14:20:51 | INFO | P02 | 
+----------------
+Data Inspection:
+----------------
+    One row means: one penguin
+    Row count: 344
+    Column count: 8
+    Column names: ['species', 'island', 'bill_length_mm', 'bill_depth_mm', 'flipper_length_mm', 'body_mass_g', 'sex', 'year']
+
+---------------
+First Few Rows:
+---------------
+  species     island  bill_length_mm  ...  body_mass_g     sex  year
+0  Adelie  Torgersen            39.1  ...       3750.0    male  2007
+1  Adelie  Torgersen            39.5  ...       3800.0  female  2007
+2  Adelie  Torgersen            40.3  ...       3250.0  female  2007
+3  Adelie  Torgersen             NaN  ...          NaN     NaN  2007
+4  Adelie  Torgersen            36.7  ...       3450.0  female  2007
+
+[5 rows x 8 columns]
+
+2026-08-30 14:20:51 | INFO | P02 | -------------------------------
+2026-08-30 14:20:51 | INFO | P02 | 03. REPEAT logic using a for loop.
+2026-08-30 14:20:51 | INFO | P02 | -------------------------------
+2026-08-30 14:20:51 | INFO | P02 | Column name: species
+2026-08-30 14:20:51 | INFO | P02 | Column name: island
+2026-08-30 14:20:51 | INFO | P02 | Column name: bill_length_mm
+2026-08-30 14:20:51 | INFO | P02 | Column name: bill_depth_mm
+2026-08-30 14:20:51 | INFO | P02 | Column name: flipper_length_mm
+2026-08-30 14:20:51 | INFO | P02 | Column name: body_mass_g
+2026-08-30 14:20:51 | INFO | P02 | Column name: sex
+2026-08-30 14:20:51 | INFO | P02 | Column name: year
+2026-08-30 14:20:51 | INFO | P02 | Selected group column: species
+2026-08-30 14:20:51 | INFO | P02 | Reason for choosing this group: 
+The species column has a small number of unique values.
+There are three unique species, so a for loop can
+process and log each one.
+
+2026-08-30 14:20:51 | INFO | P02 | Item: Adelie
+2026-08-30 14:20:51 | INFO | P02 | Item: Gentoo
+2026-08-30 14:20:51 | INFO | P02 | Item: Chinstrap
+2026-08-30 14:20:51 | INFO | P02 | -------------------------------
+2026-08-30 14:20:51 | INFO | P02 | 04. TRANSFORM one list to another list.
+2026-08-30 14:20:51 | INFO | P02 | -------------------------------
+2026-08-30 14:20:51 | INFO | P02 | Capitalized column names: ['SPECIES', 'ISLAND', 'BILL_LENGTH_MM', 'BILL_DEPTH_MM', 'FLIPPER_LENGTH_MM', 'BODY_MASS_G', 'SEX', 'YEAR']
+2026-08-30 14:20:51 | INFO | P02 | -------------------------------
+2026-08-30 14:20:51 | INFO | P02 | 05. BRANCH based on conditions.
+2026-08-30 14:20:51 | INFO | P02 | -------------------------------
+2026-08-30 14:20:51 | INFO | P02 | Selected measurement column: flipper_length_mm
+2026-08-30 14:20:51 | INFO | P02 | Reason for choosing this measurement: 
+Flipper length varies across penguins.
+There is no fixed cutoff, so we'll calculate the average
+and filter out the values below the mean. Then we can visualize
+the distribution of the remaining values.
+
+2026-08-30 14:20:51 | INFO | P02 | flipper_length_mm - Minimum: 172.0
+2026-08-30 14:20:51 | INFO | P02 | flipper_length_mm - Maximum:  231.0
+2026-08-30 14:20:51 | INFO | P02 | flipper_length_mm - Mean:     200.91520467836258
+2026-08-30 14:20:51 | INFO | P02 | -------------------------------
+2026-08-30 14:20:51 | INFO | P02 | Sample flipper_length_mm: 181.0
+2026-08-30 14:20:51 | INFO | P02 | Skipping 181.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 186.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 195.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing nan because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 193.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 190.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 181.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 195.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 193.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 190.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 186.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 180.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 182.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 191.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 198.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 185.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 195.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 197.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 184.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 194.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 174.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 180.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 189.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 185.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 180.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 187.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 183.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 187.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 172.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 180.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 178.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 178.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 188.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 184.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 195.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 196.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 190.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 180.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 181.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 184.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 182.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 195.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 186.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 196.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 185.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 190.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 182.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 179.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 190.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 191.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 186.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 188.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 190.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 200.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 187.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 191.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 186.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 193.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 181.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 194.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 185.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 195.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 185.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 192.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 184.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 192.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 195.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 188.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 190.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 198.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 190.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 190.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 196.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 197.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 190.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 195.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 191.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 184.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 187.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 195.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 189.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 196.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 187.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 193.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 191.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 194.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 190.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 189.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 189.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 190.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 202.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 205.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 185.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 186.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 187.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 208.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 190.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 196.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 178.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 192.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 192.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 203.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 183.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 190.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 193.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 184.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 199.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 190.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 181.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 197.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 198.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 191.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 193.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 197.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 191.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 196.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 188.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 199.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 189.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 189.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 187.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 198.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 176.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 202.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 186.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 199.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 191.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 195.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 191.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 210.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 190.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 197.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 193.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 199.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 187.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 190.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 191.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 200.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 185.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 193.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 193.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 187.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 188.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 190.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 192.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 185.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 190.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 184.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 195.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 193.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 187.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 201.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 211.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 230.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 210.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 218.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 215.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 210.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 211.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 219.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 209.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 215.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 214.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 216.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 214.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 213.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 210.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 217.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 210.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 221.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 209.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 222.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 218.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 215.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 213.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 215.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 215.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 215.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 216.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 215.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 210.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 220.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 222.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 209.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 207.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 230.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 220.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 220.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 213.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 219.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 208.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 208.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 208.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 225.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 210.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 216.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 222.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 217.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 210.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 225.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 213.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 215.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 210.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 220.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 210.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 225.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 217.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 220.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 208.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 220.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 208.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 224.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 208.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 221.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 214.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 231.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 219.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 230.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 214.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 229.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 220.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 223.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 216.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 221.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 221.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 217.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 216.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 230.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 209.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 220.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 215.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 223.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 212.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 221.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 212.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 224.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 212.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 228.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 218.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 218.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 212.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 230.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 218.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 228.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 212.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 224.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 214.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 226.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 216.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 222.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 203.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 225.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 219.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 228.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 215.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 228.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 216.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 215.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 210.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 219.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 208.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 209.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 216.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 229.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 213.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 230.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 217.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 230.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 217.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 222.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 214.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing nan because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 215.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 222.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 212.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 213.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 192.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 196.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 193.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 188.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 197.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 198.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 178.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 197.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 195.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 198.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 193.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 194.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 185.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 201.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 190.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 201.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 197.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 181.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 190.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 195.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 181.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 191.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 187.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 193.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 195.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 197.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 200.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 200.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 191.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 205.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 187.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 201.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 187.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 203.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 195.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 199.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 195.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 210.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 192.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 205.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 210.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 187.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 196.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 196.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 196.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 201.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 190.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 212.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 187.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 198.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 199.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 201.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 193.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 203.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 187.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 197.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 191.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 203.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 202.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 194.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 206.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 189.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 195.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 207.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 202.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 193.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | Processing 210.0 because it is equal to or above the mean.
+2026-08-30 14:20:51 | INFO | P02 | Skipping 198.0 because it is below the mean.
+2026-08-30 14:20:51 | INFO | P02 | -------------------------------
+2026-08-30 14:20:51 | INFO | P02 | 07. VISUALIZE the selected measurement.
+2026-08-30 14:20:51 | INFO | P02 | -------------------------------
+2026-08-30 14:20:51 | INFO | P02 | Creating a chart to visualize the selected measurement.
+2026-08-30 14:20:51 | INFO | P02 | Here is a distibution of the measurements equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | === RUN START ===
+2026-08-30 14:21:44 | INFO | P02 | project=P02
+2026-08-30 14:21:44 | INFO | P02 | repo_dir=datafun-02-automation
+2026-08-30 14:21:44 | INFO | P02 | python=3.14.7
+2026-08-30 14:21:44 | INFO | P02 | os=Linux 7.0.0-30-generic
+2026-08-30 14:21:44 | INFO | P02 | shell=bash
+2026-08-30 14:21:44 | INFO | P02 | cwd=.
+2026-08-30 14:21:44 | INFO | P02 | github_actions=False
+2026-08-30 14:21:44 | INFO | P02 | ===================================
+2026-08-30 14:21:44 | INFO | P02 | START main()
+2026-08-30 14:21:44 | INFO | P02 | ===================================
+2026-08-30 14:21:44 | INFO | P02 | -------------------------------
+2026-08-30 14:21:44 | INFO | P02 | 01. LOAD the data.
+2026-08-30 14:21:44 | INFO | P02 | -------------------------------
+2026-08-30 14:21:44 | INFO | P02 | data file = data/penguins.csv
+2026-08-30 14:21:44 | INFO | P02 | Data loaded successfully.
+2026-08-30 14:21:44 | INFO | P02 | -------------------------------
+2026-08-30 14:21:44 | INFO | P02 | 02. INSPECT the data.
+2026-08-30 14:21:44 | INFO | P02 | -------------------------------
+2026-08-30 14:21:44 | INFO | P02 | START inspect
+2026-08-30 14:21:44 | INFO | P02 |    row_count:    344
+2026-08-30 14:21:44 | INFO | P02 |    column_count: 8
+2026-08-30 14:21:44 | INFO | P02 |    column_names: ['species', 'island', 'bill_length_mm', 'bill_depth_mm', 'flipper_length_mm', 'body_mass_g', 'sex', 'year']
+2026-08-30 14:21:44 | INFO | P02 | END inspect. Returning inspection_string.
+2026-08-30 14:21:44 | INFO | P02 | 
+----------------
+Data Inspection:
+----------------
+    One row means: one penguin
+    Row count: 344
+    Column count: 8
+    Column names: ['species', 'island', 'bill_length_mm', 'bill_depth_mm', 'flipper_length_mm', 'body_mass_g', 'sex', 'year']
+
+---------------
+First Few Rows:
+---------------
+  species     island  bill_length_mm  ...  body_mass_g     sex  year
+0  Adelie  Torgersen            39.1  ...       3750.0    male  2007
+1  Adelie  Torgersen            39.5  ...       3800.0  female  2007
+2  Adelie  Torgersen            40.3  ...       3250.0  female  2007
+3  Adelie  Torgersen             NaN  ...          NaN     NaN  2007
+4  Adelie  Torgersen            36.7  ...       3450.0  female  2007
+
+[5 rows x 8 columns]
+
+2026-08-30 14:21:44 | INFO | P02 | -------------------------------
+2026-08-30 14:21:44 | INFO | P02 | 03. REPEAT logic using a for loop.
+2026-08-30 14:21:44 | INFO | P02 | -------------------------------
+2026-08-30 14:21:44 | INFO | P02 | Column name: species
+2026-08-30 14:21:44 | INFO | P02 | Column name: island
+2026-08-30 14:21:44 | INFO | P02 | Column name: bill_length_mm
+2026-08-30 14:21:44 | INFO | P02 | Column name: bill_depth_mm
+2026-08-30 14:21:44 | INFO | P02 | Column name: flipper_length_mm
+2026-08-30 14:21:44 | INFO | P02 | Column name: body_mass_g
+2026-08-30 14:21:44 | INFO | P02 | Column name: sex
+2026-08-30 14:21:44 | INFO | P02 | Column name: year
+2026-08-30 14:21:44 | INFO | P02 | Selected group column: species
+2026-08-30 14:21:44 | INFO | P02 | Reason for choosing this group: 
+The species column has a small number of unique values.
+There are three unique species, so a for loop can
+process and log each one.
+
+2026-08-30 14:21:44 | INFO | P02 | Item: Adelie
+2026-08-30 14:21:44 | INFO | P02 | Item: Gentoo
+2026-08-30 14:21:44 | INFO | P02 | Item: Chinstrap
+2026-08-30 14:21:44 | INFO | P02 | -------------------------------
+2026-08-30 14:21:44 | INFO | P02 | 04. TRANSFORM one list to another list.
+2026-08-30 14:21:44 | INFO | P02 | -------------------------------
+2026-08-30 14:21:44 | INFO | P02 | Capitalized column names: ['SPECIES', 'ISLAND', 'BILL_LENGTH_MM', 'BILL_DEPTH_MM', 'FLIPPER_LENGTH_MM', 'BODY_MASS_G', 'SEX', 'YEAR']
+2026-08-30 14:21:44 | INFO | P02 | -------------------------------
+2026-08-30 14:21:44 | INFO | P02 | 05. BRANCH based on conditions.
+2026-08-30 14:21:44 | INFO | P02 | -------------------------------
+2026-08-30 14:21:44 | INFO | P02 | Selected measurement column: flipper_length_mm
+2026-08-30 14:21:44 | INFO | P02 | Reason for choosing this measurement: 
+Flipper length varies across penguins.
+There is no fixed cutoff, so we'll calculate the average
+and filter out the values below the mean. Then we can visualize
+the distribution of the remaining values.
+
+2026-08-30 14:21:44 | INFO | P02 | flipper_length_mm - Minimum: 172.0
+2026-08-30 14:21:44 | INFO | P02 | flipper_length_mm - Maximum:  231.0
+2026-08-30 14:21:44 | INFO | P02 | flipper_length_mm - Mean:     200.91520467836258
+2026-08-30 14:21:44 | INFO | P02 | -------------------------------
+2026-08-30 14:21:44 | INFO | P02 | Sample flipper_length_mm: 181.0
+2026-08-30 14:21:44 | INFO | P02 | Skipping 181.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 186.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 195.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing nan because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 193.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 190.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 181.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 195.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 193.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 190.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 186.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 180.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 182.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 191.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 198.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 185.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 195.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 197.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 184.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 194.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 174.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 180.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 189.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 185.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 180.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 187.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 183.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 187.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 172.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 180.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 178.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 178.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 188.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 184.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 195.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 196.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 190.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 180.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 181.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 184.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 182.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 195.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 186.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 196.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 185.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 190.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 182.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 179.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 190.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 191.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 186.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 188.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 190.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 200.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 187.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 191.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 186.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 193.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 181.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 194.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 185.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 195.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 185.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 192.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 184.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 192.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 195.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 188.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 190.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 198.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 190.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 190.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 196.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 197.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 190.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 195.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 191.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 184.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 187.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 195.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 189.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 196.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 187.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 193.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 191.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 194.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 190.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 189.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 189.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 190.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 202.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 205.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 185.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 186.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 187.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 208.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 190.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 196.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 178.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 192.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 192.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 203.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 183.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 190.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 193.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 184.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 199.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 190.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 181.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 197.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 198.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 191.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 193.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 197.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 191.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 196.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 188.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 199.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 189.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 189.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 187.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 198.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 176.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 202.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 186.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 199.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 191.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 195.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 191.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 210.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 190.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 197.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 193.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 199.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 187.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 190.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 191.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 200.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 185.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 193.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 193.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 187.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 188.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 190.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 192.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 185.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 190.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 184.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 195.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 193.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 187.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 201.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 211.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 230.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 210.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 218.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 215.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 210.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 211.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 219.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 209.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 215.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 214.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 216.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 214.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 213.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 210.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 217.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 210.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 221.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 209.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 222.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 218.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 215.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 213.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 215.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 215.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 215.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 216.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 215.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 210.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 220.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 222.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 209.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 207.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 230.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 220.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 220.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 213.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 219.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 208.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 208.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 208.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 225.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 210.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 216.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 222.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 217.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 210.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 225.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 213.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 215.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 210.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 220.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 210.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 225.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 217.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 220.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 208.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 220.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 208.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 224.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 208.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 221.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 214.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 231.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 219.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 230.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 214.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 229.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 220.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 223.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 216.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 221.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 221.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 217.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 216.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 230.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 209.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 220.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 215.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 223.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 212.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 221.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 212.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 224.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 212.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 228.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 218.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 218.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 212.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 230.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 218.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 228.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 212.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 224.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 214.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 226.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 216.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 222.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 203.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 225.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 219.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 228.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 215.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 228.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 216.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 215.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 210.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 219.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 208.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 209.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 216.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 229.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 213.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 230.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 217.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 230.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 217.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 222.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 214.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing nan because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 215.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 222.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 212.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 213.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 192.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 196.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 193.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 188.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 197.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 198.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 178.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 197.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 195.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 198.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 193.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 194.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 185.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 201.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 190.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 201.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 197.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 181.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 190.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 195.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 181.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 191.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 187.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 193.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 195.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 197.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 200.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 200.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 191.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 205.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 187.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 201.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 187.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 203.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 195.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 199.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 195.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 210.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 192.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 205.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 210.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 187.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 196.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 196.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 196.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 201.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 190.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 212.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 187.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 198.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 199.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 201.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 193.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 203.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 187.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 197.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 191.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 203.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 202.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 194.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 206.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 189.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 195.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 207.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 202.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 193.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | Processing 210.0 because it is equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | Skipping 198.0 because it is below the mean.
+2026-08-30 14:21:44 | INFO | P02 | -------------------------------
+2026-08-30 14:21:44 | INFO | P02 | 07. VISUALIZE the selected measurement.
+2026-08-30 14:21:44 | INFO | P02 | -------------------------------
+2026-08-30 14:21:44 | INFO | P02 | Creating a chart to visualize the selected measurement.
+2026-08-30 14:21:44 | INFO | P02 | Here is a distibution of the measurements equal to or above the mean.
+2026-08-30 14:21:44 | INFO | P02 | IMPORTANT: Close chart window to continue by clicking its X or close button.
+2026-08-30 14:21:50 | INFO | P02 | ===================================
+2026-08-30 14:21:50 | INFO | P02 | END main() - Executed successfully!
+2026-08-30 14:21:50 | INFO | P02 | ===================================
