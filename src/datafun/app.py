@@ -252,30 +252,42 @@ def main() -> None:
     sample_reading: float = df[MEASUREMENT_COLUMN].iloc[sample_index]
     LOG.info(f"Sample {MEASUREMENT_COLUMN}: {sample_reading}")
 
-    LOG.info(f"Short threshold multiplier: {SHORT_THRESHOLD_MULTIPLIER}")
-    LOG.info(f"Long threshold multiplier:  {LONG_THRESHOLD_MULTIPLIER}")
+    # Use Continue to skip over data below certain threshold and create a new list of values above the threshold.
 
-    short_threshold: float = SHORT_THRESHOLD_MULTIPLIER * mean
-    long_threshold: float = LONG_THRESHOLD_MULTIPLIER * mean
+    above_mean = []
 
-    LOG.info(f"Short threshold: {short_threshold}")
-    LOG.info(f"Long threshold:  {long_threshold}")
+    for sample_reading in df[MEASUREMENT_COLUMN]:
+        if sample_reading < mean:
+            LOG.info(f"Skipping {sample_reading} because it is below the mean.")
+            continue
+        above_mean.append(sample_reading)
+        LOG.info(f"Processing {sample_reading} because it is equal to or above the mean.")
+
+
+    # LOG.info(f"Short threshold multiplier: {SHORT_THRESHOLD_MULTIPLIER}")
+    # LOG.info(f"Long threshold multiplier:  {LONG_THRESHOLD_MULTIPLIER}")
+
+    # short_threshold: float = SHORT_THRESHOLD_MULTIPLIER * mean
+    # long_threshold: float = LONG_THRESHOLD_MULTIPLIER * mean
+
+    # LOG.info(f"Short threshold: {short_threshold}")
+    #LOG.info(f"Long threshold:  {long_threshold}")
 
     # Use the Python keywords if, elif, and else
     # to classify the selected measurement based on the calculated thresholds.
     # elif means "else if"
-    if sample_reading < short_threshold:
-        classification_string: str = "SHORT"
-    elif sample_reading > long_threshold:
-        classification_string: str = "LONG"
-    else:
-        classification_string: str = "MEDIUM"
+    # if sample_reading < short_threshold:
+    #    classification_string: str = "SHORT"
+    # elif sample_reading > long_threshold:
+    #    classification_string: str = "LONG"
+    # else:
+    #     classification_string: str = "MEDIUM"
 
-    LOG.info(f"First row {MEASUREMENT_COLUMN} classification: {classification_string}")
+    # LOG.info(f"First row {MEASUREMENT_COLUMN} classification: {classification_string}")
 
-    LOG.info("-------------------------------")
-    LOG.info("06. REPEAT while a condition is true.")
-    LOG.info("-------------------------------")
+    # LOG.info("-------------------------------")
+    # LOG.info("06. REPEAT while a condition is true.")
+    # LOG.info("-------------------------------")
 
     # We can also perform logic repeatedly using a while loop.
     # This is often used for streaming data or continuously monitoring a condition.
@@ -284,52 +296,60 @@ def main() -> None:
     # every so many seconds, for a total of MAX_RECORDS measurements.
 
     # Constant values used by the while loop.
-    MAX_RECORDS: Final[int] = 10  # CUSTOM: change this from 10.
-    STREAM_WAIT_SECONDS: Final[int] = 1  # CUSTOM: Change this from 1 second.
+    #MAX_RECORDS: Final[int] = 10  # CUSTOM: change this from 10.
+    #STREAM_WAIT_SECONDS: Final[int] = 1  # CUSTOM: Change this from 1 second.
 
-    LOG.info("Starting to process measurements periodically...")
-    LOG.info(f"Max records to process: {MAX_RECORDS}")
-    LOG.info(f"Stream wait seconds: {STREAM_WAIT_SECONDS}")
+    #LOG.info("Starting to process measurements periodically...")
+    #LOG.info(f"Max records to process: {MAX_RECORDS}")
+    #LOG.info(f"Stream wait seconds: {STREAM_WAIT_SECONDS}")
 
     # Initialize the count variable used by the while loop.
     # By convention, counting starts at 0, so the first pass reads row 0.
-    count: int = 0
-    LOG.info(f"Current count: {count}")
+    #count: int = 0
+    #LOG.info(f"Current count: {count}")
 
     # Start the while loop to process measurements periodically
     # while the count is less than the maximum number of records.
-    while count < MAX_RECORDS:
+    #   while count < MAX_RECORDS:
         # Get the measurement from row `count`, which advances each pass.
-        current_measurement: float = df[MEASUREMENT_COLUMN].iloc[count]
-        LOG.info(f"Current {MEASUREMENT_COLUMN}: {current_measurement}")
+    #   current_measurement: float = df[MEASUREMENT_COLUMN].iloc[count]
+    #   LOG.info(f"Current {MEASUREMENT_COLUMN}: {current_measurement}")
 
-        count += 1
-        LOG.info(f"Updated count: {count}")
+    #    count += 1
+    #    LOG.info(f"Updated count: {count}")
 
-        time.sleep(STREAM_WAIT_SECONDS)
+    #    time.sleep(STREAM_WAIT_SECONDS)
 
     LOG.info("-------------------------------")
     LOG.info("07. VISUALIZE the selected measurement.")
     LOG.info("-------------------------------")
 
     LOG.info("Creating a chart to visualize the selected measurement.")
-    LOG.info("We selected one numeric column, so let's look at the distribution.")
+    LOG.info("Here is a distibution of the measurements equal to or above the mean.")
+
+    import matplotlib.pyplot as plt
+
+    plt.hist(above_mean)
+    plt.xlabel("Measurement")
+    plt.ylabel("Frequency")
+    plt.title("Distribution of Measurements Equal to or Above the Mean")
+    
 
     # Define a path to save the distribution plot.
     # REQUIRED: Use the "docs/images" folder to store generated charts.
-    CHART_PATH = Path("docs/images/measurement-distribution.png")
+    # CHART_PATH = Path("docs/images/measurement-distribution.png")
 
     # Call an imported function that will show a distribution plot
     # Pass in the pandas DataFrame (df) along with the selected measurement column.
     # It will return a matplotlib Axes object representing the distribution plot.
-    ax = show_numeric_distribution(
-        df,
-        column=MEASUREMENT_COLUMN,
-    )
+    #ax = show_numeric_distribution(
+    #    df,
+    #    column=MEASUREMENT_COLUMN,
+    #)
 
     # call the save_chart() function and pass in the Axes and the path
-    save_chart(ax, CHART_PATH)
-    LOG.info(f"Chart saved successfully at {CHART_PATH}.")
+    # save_chart(ax, CHART_PATH)
+    # LOG.info(f"Chart saved successfully at {CHART_PATH}.")
 
     LOG.info(
         "IMPORTANT: Close chart window to continue by clicking its X or close button."
