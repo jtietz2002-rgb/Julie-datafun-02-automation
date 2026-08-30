@@ -39,11 +39,9 @@ We organize the instructions into different files
 
 import logging
 from pathlib import Path
-import time
 from typing import Final
 
 from datafun_toolkit.logger import get_logger, log_header, log_path
-
 import matplotlib.pyplot as plt
 import pandas as pd
 
@@ -257,9 +255,9 @@ def main() -> None:
             LOG.info(f"Skipping {sample_reading} because it is below the mean.")
             continue
         above_mean.append(sample_reading)
-        LOG.info(f"Processing {sample_reading} because it is equal to or above the mean.")
-
-
+        LOG.info(
+            f"Processing {sample_reading} because it is equal to or above the mean."
+        )
 
     LOG.info("-------------------------------")
     LOG.info("07. VISUALIZE the selected measurement.")
@@ -269,21 +267,17 @@ def main() -> None:
     LOG.info("Here is a distibution of the measurements equal to or above the mean.")
 
     # Call an imported function that will show a distribution plot
-    import matplotlib.pyplot as plt
 
     plt.hist(above_mean)
     plt.xlabel("Measurement")
     plt.ylabel("Frequency")
     plt.title("Distribution of Measurements Equal to or Above the Mean")
 
-
     # Define a path to save the distribution plot.
     # REQUIRED: Use the "docs/images" folder to store generated charts.
 
     plt.savefig("docs/images/measurements_above_mean.png")
 
-
-   
     LOG.info(
         "IMPORTANT: Close chart window to continue by clicking its X or close button."
     )
